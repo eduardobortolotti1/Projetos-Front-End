@@ -3,10 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Imagens adaptáveis</title>
+    <title>Mídias em HTML5</title>
 </head>
 <body>
     <h1>Imagens adaptáveis ao tamanho da tela</h1>
+    <p>Teste o website em tamanhos de navegador diferente!</p>
+    
+    <picture>
+        <source media="(max-width: 750px)" srcset="images/foto-p.png">
+        <source media="(max-width: 1050px)" srcset="images/foto-m.png" type="image/png">
+        <img src="images/foto-g.png" alt="imagem flexivel">
+    </picture>
 
+    <h2>Reproduzindo áudio</h2>
+    <audio src="media/Waterpark_Radio_Ad_Freedom_Trail_Studio.mp3" controls autoplay loop></audio>
+    <audio preload="none" controls autoplay loop>
+        <source src="media/Waterpark_Radio_Ad_Freedom_Trail_Studio.mp3" type="audio/mpeg">
+    </audio>
+
+    <h2>Reproduzindo vídeos</h2>
+    <video width=""" height="720px" autoplay controls>
+        <source src="media/video.mp4" type="video/mp4">
+        <source src="media/video.webm" type="video/webm">
+        <p>Seu navegador não é compatível com a execução de vídeos.</p>
+    </video>
+    <br>
+    <iframe width="1280" height="720" src="https://www.youtube.com/embed/FdE5G95B7Mg?si=vMFQafFqCCulw0LG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </body>
 </html>
