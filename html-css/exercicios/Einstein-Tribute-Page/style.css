@@ -13,13 +13,16 @@ h1 {
 }
 
 body {
-    background-image: url(media/albert_einstein.jpg);
     background-color: #181A1B;
     background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
 }
 
 .introduction {
-    height: 1080px;
+    width: 100vw;
+    height: 100vh;
+    background-color:black;
 }
 
 main {
