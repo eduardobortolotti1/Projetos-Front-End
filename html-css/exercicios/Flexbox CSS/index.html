@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox css test</title>
+    <style>
+
+/* 
+        flex-direction:
+        column;
+        column-reverse;
+        row;
+        row-reverse;
+
+        justify-content: <--- Alinhamento no eixo principal
+        flex-start;
+        flex-end;
+        center;
+        space-between; <--- IMPORTANTE
+        space-around;
+
+        align-items: <--- Alinhamento no eixo perpendicular
+        center;
+        baseline; <--- Alinhamento de conteúdo
+        stretch;
+
+        flex-wrap:
+        nowrap;
+        wrap; <--- Quebra de linha
+
+        flex-flow: <--- flex-direction + flex-wrap
+        column-wrap;
+        column-nowrap;
+        row-wrap;
+        row-nowrap;
+
+        align-content: <--- Alinhamento de conteúdo com várias linhas (usando flex-wrap)
+        flex-start;
+        flex-end;
+        center;
+        space-between;
+
+        gap: <--- Espaço entre os elementos
+        row-gap
+        column-gap
+        
+*/
+
+        body{
+            background-color: bisque;
+        }
+
+        .container {
+            flex-wrap: wrap;
+            background-color: rgb(100, 255, 125);
+            height: 450px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div.bloco-1 {
+            background-color: red;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        div.bloco-2 {
+            background-color: green;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        div.bloco-3 {
+            background-color: blue;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <main class="container">
+        <div class="bloco-1">1</div>
+        <div class="bloco-2">2</div>
+        <div class="bloco-3">3</div>
+
+    </main>
+</body>
+</html>
