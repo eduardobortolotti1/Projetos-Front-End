@@ -60,7 +60,7 @@ html, body {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.808);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 25px;
   font-size: 40px;
@@ -82,6 +82,11 @@ html, body {
   font-size: 1.35rem;
   font-weight: 500;
   padding: 0 20px;
+}
+
+.topnav ul li a:hover {
+  color: #f0c7c7;
+  background-color: #f0c7c7;
 }
 
 .menu-icon {
@@ -127,7 +132,7 @@ html, body {
   flex-wrap: wrap;
   height: auto;
   margin: 4.5em 0;
-  /* background-color: rgba(127, 255, 212, 0.404); /* OPCIONAL TESTE */ */
+  /* background-color: rgba(127, 255, 212, 0.404); /* OPCIONAL TESTE */ 
 }
 
 .conhecimentos .linguagens .html5, .css, .javascript, .python  {
@@ -139,7 +144,7 @@ html, body {
   height: 100px;
   gap: 20px;
   font-size: 2em;
-  /* background-color: rgba(137, 43, 226, 0.336); /* OPCIONAL TESTE */ */
+  /* background-color: rgba(137, 43, 226, 0.336); /* OPCIONAL TESTE */ 
 }
 
 .conhecimentos .linguagens a {
