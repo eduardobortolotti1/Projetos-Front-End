@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Frank+Ruhl+Libre:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Frank+Ruhl+Libre:wght@300;400;500;600;700;800;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
  @media screen and (max-width: 500px) {
   .column .hero h2, .column .conhecimentos h2 {
@@ -28,7 +28,7 @@ html, body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Frank Ruhl Libre", Arial, sans-serif;
+  font-family: "Inter", Arial, sans-serif;
   
 }
 
@@ -60,7 +60,7 @@ html, body {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.808);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 25px;
   font-size: 40px;
@@ -107,16 +107,48 @@ html, body {
 
 .conhecimentos {
   width: 100%;
-
-  padding: 0 20px;
+  padding: 20px 20px;
   background-color: rgba(0, 0, 0, 0.274);
-
+  border-radius: 10px;
 }
 
 .conhecimentos h2 {
   font-family: "Cinzel", Arial, sans-serif;
   font-size: 48px;
   font-weight: 400;
-  margin: 4rem 0;
+  margin: 3rem 0;
   text-align: center;
+}
+
+.conhecimentos .linguagens {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: auto;
+  margin: 4.5em 0;
+  /* background-color: rgba(127, 255, 212, 0.404); /* OPCIONAL TESTE */ */
+}
+
+.conhecimentos .linguagens .html5, .css, .javascript, .python  {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 100px;
+  gap: 20px;
+  font-size: 2em;
+  /* background-color: rgba(137, 43, 226, 0.336); /* OPCIONAL TESTE */ */
+}
+
+.conhecimentos .linguagens a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+.conhecimentos p {
+  text-align: justify;
+  margin: 10px 0;
 }
