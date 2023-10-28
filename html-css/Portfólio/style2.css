@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Frank+Ruhl+Libre:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Frank Ruhl Libre", Arial, sans-serif;
+}
+
+.topnav {
+  width: 100%;
+  background-color: black;
+}
+
+.container {
+  width: 100%;
+  height: 10000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.432);
+
+}
+
+.container .column {
+  width: 90%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 255, 255, 0.192);
+  padding: 20px;
+}
+

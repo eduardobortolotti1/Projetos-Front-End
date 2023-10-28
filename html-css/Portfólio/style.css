@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Frank+Ruhl+Libre:wght@300;400;500;600;700;800;900&display=swap');
+
+ @media screen and (max-width: 500px) {
+  .column .hero h2, .column .conhecimentos h2 {
+      font-size: 2rem; /* Adjust font size for smaller screens */
+  }
+
+  .topnav ul li a {
+    display: none;
+    font-size: 1.2em;
+  }
+
+  .topnav .menu-icon {
+    display: inline-block;
+    color: white;
+    font-size: 1em;
+  }
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Frank Ruhl Libre", Arial, sans-serif;
+  
+}
+
+.container {
+  width: 100%;
+  height: 10000px; /* OPCIONAL TESTE */
+  background-color: beige; /* OPCIONAL TESTE */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 20px;
+}
+
+.container .column {
+  width: 100%;
+  max-width: 800px; /* DIMENSIONAMENTO DO CONTEUDO (COLUNA PRINCIPAL) */
+  height: 10000px; /* OPCIONAL TESTE */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  /* background-color: rgba(0, 255, 255, 0.274); /* OPCIONAL TESTE */
+}
+
+.topnav {
+  width: 100%;
+  height: 100px;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.808);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  font-size: 40px;
+}
+
+.topnav ul {
+  display: flex;
+  list-style-type: none;
+}
+
+.topnav ul li {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.topnav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.35rem;
+  font-weight: 500;
+  padding: 0 20px;
+}
+
+.menu-icon {
+  display: none;
+}
+
+.hero {
+  width: 100%;
+  padding: 8em 1em;
+  /* background-color: rgb(121, 77, 77); /* OPCIONAL TESTE */
+}
+
+.hero h2 {
+  font-family: "Cinzel", Arial, sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  margin-bottom: 4rem;
+}
+
+.hero p {
+  text-align: justify;
+}
+
+.conhecimentos {
+  width: 100%;
+
+  padding: 0 20px;
+  background-color: rgba(0, 0, 0, 0.274);
+
+}
+
+.conhecimentos h2 {
+  font-family: "Cinzel", Arial, sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  margin: 4rem 0;
+  text-align: center;
+}
