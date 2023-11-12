@@ -2,18 +2,7 @@
 
  @media screen and (max-width: 500px) {
   .column .hero h2, .column .conhecimentos h2 {
-      font-size: 2rem; /* Adjust font size for smaller screens */
-  }
-
-  .topnav ul li a {
-    display: none;
-    font-size: 1.2em;
-  }
-
-  .topnav .menu-icon {
-    display: inline-block;
-    color: white;
-    font-size: 1em;
+      font-size:2.1rem; /* Adjust font size for smaller screens */
   }
 }
 
@@ -35,12 +24,13 @@ html, body {
 .container {
   width: 100%;
   height: 10000px; /* OPCIONAL TESTE */
-  background-color: beige; /* OPCIONAL TESTE */
+  background-color: #f5f5dc; /* OPCIONAL TESTE */
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
   padding: 20px;
+  min-width: 360px;
 }
 
 .container .column {
@@ -56,14 +46,31 @@ html, body {
 
 .topnav {
   width: 100%;
-  height: 100px;
+  min-width: 360px;
+  height: 70px;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.808);
+  background-color: #313131;
   display: flex;
-  justify-content: center;
+  justify-content:space-between;
   align-items: center;
-  padding: 25px;
   font-size: 40px;
+  padding: 0 40px;
+}
+
+.topnav .icon {
+  height: 100%;
+  display: flex;
+}
+
+.topnav .icon img{
+  height: 80%;
+  margin: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .topnav .icon {
+    display: none;
+  }
 }
 
 .topnav ul {
@@ -74,6 +81,7 @@ html, body {
 .topnav ul li {
   display: flex;
   flex-wrap: wrap;
+  margin: 0 15px;
 }
 
 .topnav ul li a {
@@ -81,16 +89,29 @@ html, body {
   color: white;
   font-size: 1.35rem;
   font-weight: 500;
-  padding: 0 20px;
+  padding: 5px 5px;
+  transition: color .2s ease-in-out, box-shadow 0.2s ease-in;
 }
 
 .topnav ul li a:hover {
-  color: #f0c7c7;
-  background-color: #f0c7c7;
+  box-shadow: inset 200px 0 0 0 #f5f5dc;
+  color: black;
 }
 
 .menu-icon {
-  display: none;
+  color: #313131;
+  font-size: 0.7em;
+  padding:  5px;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-icon {
+    color: white;
+  }
+
+  .topnav ul li a {
+    display: none;
+  }
 }
 
 .hero {
@@ -120,7 +141,7 @@ html, body {
 .conhecimentos h2 {
   font-family: "Cinzel", Arial, sans-serif;
   font-size: 48px;
-  font-weight: 400;
+  font-weight: 500;
   margin: 3rem 0;
   text-align: center;
 }
@@ -128,29 +149,43 @@ html, body {
 .conhecimentos .linguagens {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   flex-wrap: wrap;
   height: auto;
   margin: 4.5em 0;
+  row-gap: 2.2em;
   /* background-color: rgba(127, 255, 212, 0.404); /* OPCIONAL TESTE */ 
 }
 
-.conhecimentos .linguagens .html5, .css, .javascript, .python  {
+.html5, .css, .javascript, .python  {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  width: 160px;
-  height: 100px;
-  gap: 20px;
-  font-size: 2em;
+  width: 130px;
+  height: auto;
+  padding: 10px;
+  row-gap: 1.2em;
+  cursor: pointer;
+  
   /* background-color: rgba(137, 43, 226, 0.336); /* OPCIONAL TESTE */ 
+}
+
+.html5:hover, .css:hover, .javascript:hover, .python:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+
+.conhecimentos .linguagens i {
+  font-size: 3.5em;
 }
 
 .conhecimentos .linguagens a {
   text-decoration: none;
+  text-align: center;
   color: black;
   font-weight: 600;
+  font-size: 1.5em;
 }
 
 .conhecimentos p {
