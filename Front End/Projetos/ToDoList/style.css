@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        * {
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        body {
+            background-image: linear-gradient( #C9D7DD, #FFF3CF);
+            background-repeat: no-repeat;
+        }
+
+        main {
+            max-width: 1300px;
+            /* MAKE THE CONTENT ALIGN IN THE CENTER */
+            margin-left: auto;
+            margin-right: auto;
+            min-height: 100vh;
+        }
+
+        .create-task {
+            padding: 32px;
+            background-color: #C9D7DD;
+        }
+
+        .create-task, input, textarea#taskText {
+            border: 1px solid #637A9F !important;
+
+        }
+
+        input, textarea#taskText {
+            box-shadow: 0 4px 4px rgba(0, 0, 0, .2);
+            resize: none;
+        }
+
+        label {
+            margin-bottom: 10px;
+        }
+
+        .create-task form input#taskName {
+            border-radius: 10px;
+            max-width: 65%;
+        }
+
+        .create-task form textarea#taskText {
+            border-radius: 3px;
+        }
+
+        .task-area {
+            background-color: #C9D7DD;
+            height: 100%;
+            border: 1px solid #637A9F;
+            padding: 35px;
+        }
+
+        .task-area-title {
+            padding-left: 20px;
+            font-weight: 800;
+        }
+
+        /* MAKES THE EXAMPLE CARD INVISIBLE */
+        .card-example {
+            display: none;
+        } 
+
+        .card {
+            margin: 30px auto;
+        }
+
+        .card * {
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            padding-top: 20px;
+            padding-left: 20px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 576px){
+            .create-task form input#taskName {
+                max-width: 100%;
+            }
+        }
