@@ -3,18 +3,272 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu portfólio</title>
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2e3ab72265.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+          
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }        
+
+        html {
+            width: 100%;
+        }
+
+        body {
+            box-sizing: border-box;
+            font-family: kanit, Arial, sans-serif;
+            font-weight: 300;
+            font-size: 1.2rem;
+        }
+
+        .navbar {
+            background-color: white;
+        }
+
+        .navbar a {
+            color: black;
+        }
+
+        .navbar .expand-icon {
+            display: none;
+        }
+        
+        .navbar .expand-icon i {
+            font-size: 2rem;
+        }
+
+
+        main {
+            max-width: 1200px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        #about-me {
+            padding-top: 80px;
+        }
+
+        .about-me {
+            border-radius: 5px;
+        }
+
+        .about-me img {
+            max-width: 300px;
+            max-height: 300px;
+            user-select: none;
+        }
+
+        #knowledge {
+            padding-top: 120px;
+        }
+
+        .knowledge i {
+            font-size: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            color: rgb(30, 30, 30);
+        }
+
+        .knowledge .section-1 {
+            max-width: 1050px;
+            background-color: #F2F8F9;
+            padding: 50px 65px;
+            gap: 100px;
+        }
+
+        .knowledge .card {
+            min-height: 415px;
+            height: 100%;
+            width: 100%;
+            /* max-width: 240px;
+            width: 240px;
+            /* NOT NECESSARY WHEN PADDING AND GAP ARE DEFINED. */
+            /* CARDS WILL AUTO-RESIZE ALONG THE CONTAINER. */
+            background-color: #B6C9CD;
+            border-radius: 10px;
+            border: none;
+            align-self: stretch;
+        }
+
+        .knowledge .card:hover {
+            transition: box-shadow 0.1s ease-in;
+            top: -15px;
+            box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.25) !important;
+        }
+
+        .knowledge .card .card-top{
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .knowledge .card .card-title h2 {
+            font-size: 2rem;
+            font-weight: 500;
+            color: black;
+        }
+
+        .knowledge .card .card-top i {
+            padding: 0;
+            margin: 25px 0;
+            font-size: 95px;
+            color: black;
+        }
+
+        .knowledge .card-body {
+            padding: 15px 20px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 1200px){
+            .knowledge .section-1 {
+                padding: 50px 30px;
+                gap: 50px;
+            }
+        }
+
+        @media (max-width: 576px){
+            .navbar .expand-icon {
+                display: block;
+            }
+
+            .navbar li:not(.expand-icon) {
+                display: none;
+            }
+        }
+
+    </style>
 </head>
 <body>
-    <p><a href="">Sobre</a></p>
-    <p><a href="">Projetos</a></p>
-    <p><a href="">Contato</a></p>
-    <h1>Bem-vindo(a)!</h1>
-    <img src="" alt="profile picture">
-    <p>Olá! Sou Eduardo Bortolotti, um estudante de Engenharia de Software na Universidade Estadual do Pará, Campus Castanhal.</p>
-    <p>Busco aprimorar meu conhecimento profissional estudando e aplicando meu conhecimento de maneira prática.</p>
-    <h2>Projetos</h2>
+    <!-- NAVBAR SECTION -->
+    <section id="navbar" class="border-bottom mb-5">   
+        <div class="navbar shadow fixed-top">
+            <header class="mx-auto">
+            <ul class="nav nav-pills d-flex align-items-center">
+                <li class="nav-item"><a href="#about-me" class="nav-link">Sobre</a></li>
+                <li class="nav-item"><a href="#knowledge" class="nav-link">Conhecimentos</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Projetos</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Contato</a></li>
+                <li class="nav-item expand-icon"><button class="btn"><i class="fa-solid fa-bars"></button></i></li>
+            </ul>
+            </header>
+        </div>
+    </section>
+
+    <main class="mx-auto">
+        <!-- ABOUT-ME SECTION -->
+        <section id="about-me" class="d-flex align-items-center">
+            <div class="about-me container p-4">
+                <div class="image row d-flex justify-content-center">
+                    <div class="col-md-5 col-12 mb-2 d-flex justify-content-center">
+                        <img src="./selfie.jpg" alt="my photo" class="rounded-circle" width="100%" height="100%" draggable="false">
+                    </div>
+                    <div class="col-md-7 col-12 mt-4 d-flex align-items-center">
+                        <p>Olá! Sou <span class="fw-normal">Eduardo Bortolotti</span>, um estudante de engenharia de software da Universidade Estadual do Pará - UEPA. Sou apaixonado pela programação e tudo relacionado a computadores, sempre buscando aprimorar minhas habilidades e expandir meu horizonte acadêmico. Com uma mentalidade de aprendizagem contínua, estou pronto para enfrentar desafios em minha jornada educacional e profissional.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KNOWLEDGE SECTION -->
+        <section id="knowledge">
+            <div class="knowledge container p-0 g-0">
+                <div class="row mb-5 text-center g-0">
+                    <h1>Minhas habilidades</h1>
+                </div>
+                <!-- CARD SECTION -->
+                <div class="section-1 row shadow mb-4 d-flex justify-content-center mx-auto">
+                    <div class="col-xl-3 col-10 g-0">
+                        <div class="custom-card card shadow-sm">
+                            <div class="card-top">
+                                <div class="card-title">
+                                    <h2>Front-end</h2>
+                                </div>
+                                <i class="fa-regular fa-window-restore"></i>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-text">Na esfera do front-end, domino HTML5, CSS3 e Bootstrap, essenciais para a construção de 
+                                    interfaces web atraentes e responsivas, e estou em constante aprimoramento em JavaScript.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-10 g-0">
+                        <div class="custom-card card shadow-sm">
+                            <div class="card-top">
+                                <div class="card-title">
+                                    <h2>Back-end</h2>
+                                </div>
+                                <i class="fa-solid fa-server"></i>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-text">No back-end, procuro aprimorar meu conhecimento na linguagem C, 
+                                    uma linguagem robusta e versátil em diversos projetos para criar sistemas eficientes e escaláveis.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-10 g-0">
+                        <div class="custom-card card shadow-sm">
+                            <div class="card-top">
+                                <div class="card-title">
+                                    <h2>UI/UX</h2>
+                                </div>
+                                <i class="fa-solid fa-feather-pointed"></i>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-text">Em UI/UX, utilizo o Figma como minha ferramenta principal, aproveitando sua interface intuitiva e 
+                                    poderosas funcionalidades para projetar experiências do usuário que se destacam pela usabilidade e estética.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TECHNOLOGIES USED -->
+                <div class="tech row g-0 p-0">
+                    <div class="col-sm col-4">
+                        <i class="devicon-c-plain"></i>
+                    </div>
+                    <div class="col-sm col-4">
+                        <i class="devicon-javascript-plain"></i>
+                    </div>
+                    <div class="col-sm col-4">
+                        <i class="devicon-html5-plain"></i>
+                    </div>
+                    <div class="col-sm col-4">
+                        <i class="devicon-css3-plain"></i>
+                    </div>
+                    <div class="col-sm col-4">
+                        <i class="devicon-bootstrap-plain"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="footer">
+            <footer class="footer">
+                <div>
+
+                </div>
+            </footer>
+        </section>
+
+    </main>
 
 
+
+
+
+
+
+
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
