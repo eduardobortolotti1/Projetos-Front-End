@@ -1,0 +1,38 @@
+header {
+  min-width: 100px;
+}
+
+header li{
+  list-style: none;
+  display: inline;
+}
+
+main {
+  padding: 15px;
+}
+
+i {
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.icons {
+  display: flex;
+  flex-wrap: nowrap;
+  max-width: auto;
+  gap: 20px;
+}
+
+.post {
+  min-width: 150px;
+  max-width: 500px;
+  text-align: justify;
+}
+
+.post h1, h2 {
+  font-size: 1.2rem;
+}
+
+.post h1 {
+  font-weight: bold;
+}
