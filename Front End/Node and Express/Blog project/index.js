@@ -51,7 +51,7 @@ app.delete("/submit", (req, res) => {
   delete postData["postName" + idNumber];
   delete postData["postContent" + idNumber];
 
-  //Prevents postCount from going negative if user spam clicks
+  // Prevents postCount from going negative if user spam clicks
   if (postData["postCount"] > 0){
     postData["postCount"] -= 1;
   } else {
@@ -60,7 +60,6 @@ app.delete("/submit", (req, res) => {
   
   console.log("Postcount: " + postCount);
   console.log("POSTDATA: " + JSON.stringify(postData));
-
 
   res.json({ message: 'Post deleted successfully' });
 })
