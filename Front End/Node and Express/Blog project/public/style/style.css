@@ -1,14 +1,57 @@
-header {
-  min-width: 100px;
+* {
+  color: white;
 }
 
-header li{
+body {
+  background-color: #FFF7FC;
+}
+
+nav ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+nav li{
   list-style: none;
   display: inline;
+  margin-right: 15px;
+}
+
+nav a {
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  font-size: 1.4rem;
+  padding: 10px;
+  background-color: #5755FE;
+  border-radius: 10px;
+}
+
+input {
+  color: black;
+}
+
+input[type="submit"] {
+  background-color: #5755FE;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  padding: 3px 5px;
 }
 
 main {
   padding: 15px;
+  background-color: #8B93FF;
+  border-radius: 10px;
+  max-width: 1000px;
+  padding: 50px;
+}
+
+.intro h1 {
+  font-weight: bold;
 }
 
 i {

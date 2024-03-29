@@ -17,7 +17,7 @@
     <% if (locals.postData != null) { %>
       <% Object.keys(locals.postData).forEach((key) => { %>
         <% if (key.startsWith("postName")) { %>
-          <div class="post"> <!-- Move opening .post div inside the loop -->
+          <div class="post my-5">
             <% var nameID = key.replace(/[^0-9]/g, ''); %>
             <div class="post-name">
               <h1 id="<%= 'post' + nameID + '_name' %>">

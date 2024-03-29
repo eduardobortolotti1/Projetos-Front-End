@@ -1,42 +1,42 @@
 console.log("Hello world!");
 
 document.querySelectorAll("i.fa-pen").forEach((btn) => {
-  btn.addEventListener("click", function(event){
+  btn.addEventListener("click", function(){
     buttonHandler(btn);
   });
 });
 
 document.querySelectorAll(".fa-x").forEach((btn) => {
-  btn.addEventListener("click", function(event) {
+  btn.addEventListener("click", function() {
     delPost(btn);
   })
 });
 
 function buttonHandler(btn) {
-  var btnNameID = btn.parentNode.parentNode.querySelector("h1").getAttribute("id");
-  var btnContentID = btn.parentNode.parentNode.querySelector("h2").getAttribute("id");
-  var idNumber = btnNameID.replace(/[^0-9]/g, '')
+  let btnNameID = btn.parentNode.parentNode.querySelector("h1").getAttribute("id");
+  let btnContentID = btn.parentNode.parentNode.querySelector("h2").getAttribute("id");
+  let idNumber = btnNameID.replace(/[^0-9]/g, '')
 
-  var btnName = document.querySelector("#" + btnNameID).innerText;
-  var btnContent = document.querySelector("#" + btnContentID).innerText;
+  let btnName = document.querySelector("#" + btnNameID).innerText;
+  let btnContent = document.querySelector("#" + btnContentID).innerText;
 
   document.querySelector("#postName").value = btnName;
   document.querySelector("#postContent").value = btnContent;
 
   changeForm(idNumber);
-};
+}
 
-function clearForm() {
-
-};
+// function clearForm() {
+//
+// }
 
 function changeForm(idNumber){
  
-  var form = document.querySelector("#form");
+  let form = document.querySelector("#form");
 
   form.setAttribute("action", "/submit?_method=PATCH");
   
-  var numberInput = document.createElement("input");
+  let numberInput = document.createElement("input");
 
   numberInput.setAttribute("type", "hidden");
   numberInput.setAttribute("name", "idNumber");
@@ -50,9 +50,9 @@ function changeForm(idNumber){
 }
 
 function delPost(btn) {
-  var btnNameID = btn.parentNode.parentNode.querySelector("h1").getAttribute("id");
-  var btnContentID = btn.parentNode.parentNode.querySelector("h2").getAttribute("id");
-  var idNumber = btnNameID.replace(/[^0-9]/g, '');
+  let btnNameID = btn.parentNode.parentNode.querySelector("h1").getAttribute("id");
+  // var btnContentID = btn.parentNode.parentNode.querySelector("h2").getAttribute("id");
+  let idNumber = btnNameID.replace(/[^0-9]/g, '');
 
   fetch("/submit?idNumber=" + idNumber, {
     method: "DELETE",
