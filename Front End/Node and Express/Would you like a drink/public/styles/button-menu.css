@@ -1,0 +1,51 @@
+/* BUTTON MENU STYLING */
+.button-menu {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.button-menu-option {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 200px;
+  height: 150px;
+  border: 3px solid #8576ff;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  transition: 0.15s background-color;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.button-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.button-menu-option#random-button {
+  background-image: url(../images/die.png);
+}
+
+.button-menu-option#search-drink-button {
+  background-image: url(../images/search.png);
+}
+
+.button-menu-option#search-ingredient-button {
+  background-image: url(../images/cocktail.png);
+}
+.button-menu-option:hover {
+  background-color: #7bc9ff;
+}
+
+.button-menu-option a {
+  display: flex;
+  align-items: center;
+  text-decoration: none !important;
+  color: white !important;
+  font-weight: 600;
+  width: 100%;
+  height: 100%;
+}

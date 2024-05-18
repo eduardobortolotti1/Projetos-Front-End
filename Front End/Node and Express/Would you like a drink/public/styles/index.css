@@ -1,0 +1,14 @@
+.introduction {
+  margin-top: 100px;
+  margin-bottom: 150px;
+  font-size: 1.5rem;
+}
+
+.introduction img {
+  width: 80%;
+  height: auto;
+}
+
+span a {
+  color: white;
+}

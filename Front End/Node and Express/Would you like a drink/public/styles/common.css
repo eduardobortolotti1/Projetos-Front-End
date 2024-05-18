@@ -1,0 +1,14 @@
+body {
+  background-color: #6053b3;
+}
+
+p,
+h1,
+h2 {
+  font-family: Hind Siliguri, Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+.main-content {
+  max-width: 1200px;
+}
