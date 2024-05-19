@@ -15,38 +15,30 @@ app.get("/", (req, res) => {
 app.get("/random", async (req, res) => {
   try {
     const response = await axios.get(API_URL + "/random.php");
-    const drinkName = response.data.drinks[0].strDrink;
-    res.redirect("/drinkSearch?strDrink=" + drinkName);
+    const idDrink = response.data.drinks[0].idDrink;
+    res.redirect("/drink" + "?idDrink=" + idDrink);
   } catch (error) {
     console.error(error);
     res.render("index.ejs");
   }
 });
 
-app.get("/drinkSearch", async (req, res) => {
-  //Checks if query parameters are incorrect.
-  const drinkName = req.query.strDrink;
-  if (!drinkName) {
-    res.status(400).send("Code 400 bad Request.");
-  } else {
-    try {
-      const response = await axios.get(API_URL + "/search.php?s=" + drinkName);
-      const drinkInfo = response.data.drinks[0];
-      res.redirect("drink.ejs", { drinkinfo: drinkInfo });
-    } catch (error) {
-      console.error(error);
-      res.render("index.ejs");
-    }
-  }
-});
-
 app.get("/drink", async (req, res) => {
-  const drinkName = req.query.strDrink;
+  //Checks if query parameters are incorrect.
+  const idDrink = req.query.idDrink;
+  if (!idDrink) {
+    res.status(400).send("Code 400 bad Request.");
+  }
+  try {
+    //Makes a request to grab all info of the drink from its ID
+    const response = await axios.get(API_URL + "/lookup.php?i=" + idDrink);
+    const drinkInfo = response.data.drinks[0];
 
-  const response = await axios.get(API_URL + "/random.php");
-
-  console.log();
-  res.render("drink.ejs");
+    res.render("drink.ejs", { drinkInfo: drinkInfo });
+  } catch (error) {
+    console.error(error);
+    res.render("index.ejs");
+  }
 });
 
 app.listen(port, () => {

@@ -44,9 +44,9 @@
         <div class="drink-section">
           <div class="row">
             <div class="col-md-6 col-sm-12">
-              <h2 id="drink-title">San Francisco</h2>
+              <h2 id="drink-title"><%= drinkInfo.strDrink %></h2>
               <img
-                src="https://www.thecocktaildb.com/images/media/drink/utpxxq1483388370.jpg"
+                src="<%= drinkInfo.strDrinkThumb %>"
                 alt="drink image"
                 id="drink-image"
               />
@@ -57,10 +57,7 @@
             <div class="col-md-6 col-sm-12">
               <h2>Instructions:</h2>
               <p id="drink-instructions">
-                Take a tall glass and put in a few ice cubes, fill the vodka
-                over it and fill with juice then the \"creme\", to end fill in
-                the grenadine but very carefully at the side of the glass so it
-                will lay down in the bottom. garnish with orange and strawberry.
+                <%= drinkInfo.strInstructions %>
               </p>
             </div>
           </div>
@@ -68,71 +65,18 @@
           <h2>Ingredients:</h2>
           <div class="container p-0">
             <div class="row ingredients-menu g-0">
-              <div class="ingredient">
-                <a href=""
-                  ><img
-                    src="https://www.thecocktaildb.com/images/media/drink/uwvyts1483387934.jpg/preview"
-                    alt="ingredient"
-                /></a>
-                <p id="ingredient-name">Ingredient</p>
-              </div>
-              <div class="ingredient">
-                <a href=""
-                  ><img
-                    src="https://www.thecocktaildb.com/images/media/drink/uwvyts1483387934.jpg/preview"
-                    alt="ingredient"
-                /></a>
-                <p id="ingredient-name">Ingredient</p>
-              </div>
-              <div class="ingredient">
-                <a href=""
-                  ><img
-                    src="https://www.thecocktaildb.com/images/media/drink/uwvyts1483387934.jpg/preview"
-                    alt="ingredient"
-                /></a>
-                <p id="ingredient-name">Ingredient</p>
-              </div>
-              <div class="ingredient">
-                <a href=""
-                  ><img
-                    src="https://www.thecocktaildb.com/images/media/drink/uwvyts1483387934.jpg/preview"
-                    alt="ingredient"
-                /></a>
-                <p id="ingredient-name">Ingredient</p>
-              </div>
-              <div class="ingredient">
-                <a href=""
-                  ><img
-                    src="https://www.thecocktaildb.com/images/media/drink/uwvyts1483387934.jpg/preview"
-                    alt="ingredient"
-                /></a>
-                <p id="ingredient-name">Ingredient</p>
-              </div>
-              <div class="ingredient">
-                <a href=""
-                  ><img
-                    src="https://www.thecocktaildb.com/images/media/drink/uwvyts1483387934.jpg/preview"
-                    alt="ingredient"
-                /></a>
-                <p id="ingredient-name">Ingredient</p>
-              </div>
-              <div class="ingredient">
-                <a href=""
-                  ><img
-                    src="https://www.thecocktaildb.com/images/media/drink/uwvyts1483387934.jpg/preview"
-                    alt="ingredient"
-                /></a>
-                <p id="ingredient-name">Ingredient</p>
-              </div>
-              <div class="ingredient">
-                <a href=""
-                  ><img
-                    src="https://www.thecocktaildb.com/images/media/drink/uwvyts1483387934.jpg/preview"
-                    alt="ingredient"
-                /></a>
-                <p id="ingredient-name">Ingredient</p>
-              </div>
-            </div>
+              <% for (let key in drinkInfo) { %>
+                <% if (key.startsWith("strIngredient") && drinkInfo[key] !== null ) {%>
+                  <div class="ingredient">
+                  <a href="#"
+                    ><img
+                      src="<%= "https://www.thecocktaildb.com/images/ingredients/" + drinkInfo[key] + "-Small.png" %>"
+                      alt="ingredient"
+                  /></a>
+                  <p id="ingredient-name"><%= drinkInfo[key] %></p>
+                  </div>
+                <% } %>
+              <% } %>
           </div>
         </div>
 

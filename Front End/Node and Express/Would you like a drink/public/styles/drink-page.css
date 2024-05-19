@@ -24,7 +24,7 @@
   background-color: #4c438a;
   padding: 15px;
   display: flex;
-  justify-content: center;
+  justify-content:center;
 }
 
 .ingredient {
@@ -41,4 +41,6 @@
 
 #ingredient-name {
   font-size: 1rem;
+  margin: 0;
+  text-align: center;
 }
