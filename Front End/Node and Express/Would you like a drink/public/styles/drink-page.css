@@ -18,29 +18,3 @@
 #image-credit a {
   color: white;
 }
-
-.ingredients-menu {
-  max-width: 1000px;
-  background-color: #4c438a;
-  padding: 15px;
-  display: flex;
-  justify-content:center;
-}
-
-.ingredient {
-  width: 150px;
-  height: 100%;
-  padding: 10px;
-}
-
-.ingredient img {
-  width: 100%;
-  height: 100%;
-  border-radius: 5px;
-}
-
-#ingredient-name {
-  font-size: 1rem;
-  margin: 0;
-  text-align: center;
-}

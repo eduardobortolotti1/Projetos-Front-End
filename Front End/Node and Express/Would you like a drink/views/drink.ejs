@@ -21,24 +21,12 @@
     <link rel="stylesheet" href="./styles/button-menu.css" />
     <link rel="stylesheet" href="./styles/drink-page.css" />
     <link rel="stylesheet" href="./styles/footer.css" />
-    <style>
-      @media only screen and (max-width: 576px) {
-        .ingredient {
-          width: 70%;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="./styles/item-list.css" />
   </head>
 
   <body>
     <main>
-      <nav class="nav d-flex justify-content-center">
-        <ul class="nav">
-          <li class="nav-link"><a href="/" class="nav-link">Home</a></li>
-          <li class="nav-link"><a href="#" class="nav-link">Search</a></li>
-          <li class="nav-link"><a href="#" class="nav-link">All drinks</a></li>
-        </ul>
-      </nav>
+      <%- include('partials/navbar.ejs') %>
 
       <div class="main-content container px-5">
         <div class="drink-section">
@@ -64,67 +52,26 @@
 
           <h2>Ingredients:</h2>
           <div class="container p-0">
-            <div class="row ingredients-menu g-0">
+            <div class="row item-menu g-0">
               <% for (let key in drinkInfo) { %>
                 <% if (key.startsWith("strIngredient") && drinkInfo[key] !== null ) {%>
-                  <div class="ingredient">
-                  <a href="#"
+                  <% let number = key.match(/\d+$/); %>
+                  <div class="item">
+                  <a href="<%= "/ingredient?ingredientName="+ drinkInfo[key] %>"
                     ><img
                       src="<%= "https://www.thecocktaildb.com/images/ingredients/" + drinkInfo[key] + "-Small.png" %>"
                       alt="ingredient"
                   /></a>
-                  <p id="ingredient-name"><%= drinkInfo[key] %></p>
+                  <p id="item-name"><%= drinkInfo[`strMeasure${number}`] %> of <%= drinkInfo[key] %></p>
                   </div>
                 <% } %>
               <% } %>
           </div>
         </div>
 
-        <div class="button-menu">
-          <div class="row">
-            <div class="col-sm-6 col-md mb-5 button-wrap">
-              <div class="button-menu-option" id="random-button">
-                <a href="/random">Choose a random drink</a>
-              </div>
-            </div>
-            <div class="col-sm-6 col-md mb-5 button-wrap">
-              <div class="button-menu-option" id="search-drink-button">
-                <a href="/random">Search a specific drink</a>
-              </div>
-            </div>
-            <div class="col-sm-6 col-md mb-5 button-wrap">
-              <div class="button-menu-option" id="search-ingredient-button">
-                <a href="/random">Search drinks by ingredient</a>
-              </div>
-            </div>
-          </div>
-        </div>
+        <%- include('partials/button-menu.ejs') %>
 
-        <footer>
-          <div class="row" id="icon-credits">
-            <div class="col-sm-12 col-md">
-              <a
-                href="https://www.flaticon.com/free-icons/dice"
-                title="dice icons"
-                >Dice icons created by juicy_fish - Flaticon</a
-              >
-            </div>
-            <div class="col-sm-12 col-md">
-              <a
-                href="https://www.flaticon.com/free-icons/search"
-                title="search icons"
-                >Search icons created by Freepik - Flaticon</a
-              >
-            </div>
-            <div class="col-sm-12 col-md">
-              <a
-                href="https://www.flaticon.com/free-icons/cocktail"
-                title="cocktail icons"
-                >Cocktail icons created by Freepik - Flaticon</a
-              >
-            </div>
-          </div>
-        </footer>
+        <%- include('partials/footer.ejs')  %>
       </div>
     </main>
   </body>

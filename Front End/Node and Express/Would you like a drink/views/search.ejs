@@ -17,11 +17,18 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles/common.css" />
-    <link rel="stylesheet" href="./styles/index.css" />
     <link rel="stylesheet" href="./styles/navbar.css" />
     <link rel="stylesheet" href="./styles/button-menu.css" />
     <link rel="stylesheet" href="./styles/footer.css" />
+    <link rel="stylesheet" href="./styles/item-list.css" />
     <style>
+      form label {
+        color: white;
+        font-size: 1.1rem;
+      }
+      form input {
+        max-width: 350px;
+      }
     </style>
   </head>
 
@@ -30,35 +37,32 @@
       <%- include('partials/navbar.ejs') %>
 
       <div class="main-content container px-5">
-        <div class="introduction">
-          <div class="row">
-            <div class="col-md-6 col-sm-12">
-              <h1>Would you like a drink?</h1>
-              <p>
-                Welcome! This website uses the
-                <span
-                  ><a href="https://www.thecocktaildb.com/"
-                    >TheCockTailDB's</a
-                  ></span
-                >
-                API to allow the user to show random drinks, search them, and
-                other options. Discover drinks from around the world. Search,
-                explore, and enjoy.
-              </p>
-            </div>
-            <div class="col-md-6 col-sm-12">
-              <img
-                src="./images/bartender.svg"
-                alt="bartender"
-                class="img-fluid"
-              />
+        <form action="/search" method="POST" class="pt-5">
+          <label for="drink">Search drink:</label>
+          <input type="text" id="drinkName" name="drinkName" required />
+          <input type="submit" value="Submit" class="btn btn-primary" />
+        </form>
+
+        <!-- DRINK SEARCH SECTION -->
+        <% if (locals.searchData && locals.searchData.drinks != null ) { %>
+          <h2>Search results for: <%= search_name %></h2>
+          <div class="container p-0">
+            <div class="row item-menu g-0">
+              <% for (drink of searchData.drinks) { %>
+                <div class="item">
+                  <a href="<%= "/drink?idDrink=" + drink.idDrink %>"
+                    ><img
+                      src="<%= drink.strDrinkThumb %>"
+                      alt="<%= drink.strDrink %>"
+                  /></a>
+                  <p id="item-name"><%= drink.strDrink %></p>
+                </div>
+              <% } %>
             </div>
           </div>
-        </div>
-
+          <% } %>
         <%- include('partials/button-menu.ejs') %>
-
-        <%- include('partials/footer.ejs')  %>
+        <%- include('partials/footer.ejs') %>
       </div>
     </main>
   </body>

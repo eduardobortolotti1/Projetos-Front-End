@@ -1,8 +1,9 @@
 /* BUTTON MENU STYLING */
 .button-menu {
-  margin-top: 150px;
+  margin-top: 100px;
   display: flex;
   flex-wrap: wrap;
+  width: fit-content;
 }
 
 .button-menu-option {
