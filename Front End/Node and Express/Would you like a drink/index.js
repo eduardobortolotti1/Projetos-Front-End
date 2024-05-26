@@ -34,9 +34,25 @@ app.get("/drink", async (req, res) => {
   try {
     //Makes a request to grab all info of the drink from its ID
     const response = await axios.get(API_URL + "/lookup.php?i=" + idDrink);
-    const drinkInfo = response.data.drinks[0];
+    const drinkInfo = await response.data.drinks[0];
+    const ingredient_IDs = {};
 
-    res.render("drink.ejs", { drinkInfo: drinkInfo });
+    //Takes every strIngredient and makes an API call to identify its ID, individually.
+    for (let key in drinkInfo) {
+      if (key.startsWith("strIngredient") && drinkInfo[key]) {
+        let response = await axios.get(
+          API_URL + "/search.php?i=" + drinkInfo[key]
+        );
+        let data = response.data;
+
+        ingredient_IDs[key] = data.ingredients[0].idIngredient;
+      }
+    }
+
+    res.render("drink.ejs", {
+      drinkInfo: drinkInfo,
+      ingredient_IDs: ingredient_IDs,
+    });
   } catch (error) {
     console.error(error);
     res.render("index.ejs");
@@ -45,38 +61,79 @@ app.get("/drink", async (req, res) => {
 
 app.get("/search", (req, res) => {
   res.render("search.ejs");
-})
+});
 
 app.post("/search", async (req, res) => {
-  const search_name = req.body.drinkName;
+  const search_name = req.body.search_name;
   try {
     const response = await axios.get(API_URL + "/search.php?s=" + search_name);
     const search_results = response.data;
-    res.render("search.ejs", { searchData: search_results, search_name: search_name });
-  }
-  catch (error) {
+    res.render("search.ejs", {
+      searchData: search_results,
+      search_name: search_name,
+    });
+  } catch (error) {
     console.error(error);
     res.render("/search.ejs");
   }
-
-})
+});
 
 app.get("/ingredient", async (req, res) => {
-   //Checks if query parameters are incorrect.
-  const ingredientName = req.query.ingredientName;
-  if (!ingredientName) {
+  //Checks if query parameters are incorrect.
+  const ingredientID = req.query.ingredientID;
+  if (!ingredientID) {
     res.status(400).send("Code 400 bad Request.");
   }
+
   try {
-    //Makes a request to grab all info of the drink from its ID
-    const response = await axios.get(API_URL + "/search.php?i=" + ingredientName);
-    const ingredientInfo = response.data;
-    res.render("ingredient.ejs", { ingredientInfo: ingredientInfo });
+    //Makes a request to grab all info of the ingredient from its ID
+    const response = await axios.get(
+      API_URL + "/lookup.php?iid=" + ingredientID
+    );
+    const ingredientInfo = response.data.ingredients[0];
+
+    const filtered_drinks_search = (
+      await axios.get(API_URL + "/filter.php?i=" + ingredientInfo.strIngredient)
+    ).data.drinks;
+    console.log(filtered_drinks_search);
+
+    res.render("ingredient.ejs", {
+      ingredientInfo: ingredientInfo,
+      filtered_drinks_search: filtered_drinks_search,
+    });
   } catch (error) {
     console.error(error);
     res.render("index.ejs");
   }
+});
 
+app.post("/filterIngredient", async (req, res) => {
+  //Checks if query parameters are incorrect.
+  const ingredientName = req.query.ingredientName;
+  if (!ingredientName) {
+    res.status(400).send("Code 400 bad Request.");
+  }
+
+  try {
+    //Makes a request to grab all info of the ingredient from its ID
+    const response = await axios.get(
+      API_URL + "/filter.php?i=" + ingredientName
+    );
+    const ingredientInfo = response.data.drinks;
+
+    const filtered_drinks_search = (
+      await axios.get(API_URL + "/filter.php?i=" + ingredientInfo.strIngredient)
+    ).data.drinks;
+    console.log(filtered_drinks_search);
+
+    res.render("ingredient.ejs", {
+      ingredientInfo: ingredientInfo,
+      filtered_drinks_search: filtered_drinks_search,
+    });
+  } catch (error) {
+    console.error(error);
+    res.render("index.ejs");
+  }
 });
 
 app.listen(port, () => {

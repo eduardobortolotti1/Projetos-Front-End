@@ -30,7 +30,7 @@
 
       <div class="main-content container px-5">
         <div class="drink-section">
-          <div class="row">
+          <div class="row mb-3">
             <div class="col-md-6 col-sm-12">
               <h2 id="drink-title"><%= drinkInfo.strDrink %></h2>
               <img
@@ -38,9 +38,12 @@
                 alt="drink image"
                 id="drink-image"
               />
-              <p id="image-credit">
-                Credit goes here: <a href="https://www.google.com">google</a>
-              </p>
+              <% if (drinkInfo.strImageSource) { %>
+                <p id="image-credit">
+                  Credit goes here: <a href="<%= drinkInfo.strImageSource %>">Creative Commons</a>
+                </p>
+              <% } %>
+              
             </div>
             <div class="col-md-6 col-sm-12">
               <h2>Instructions:</h2>
@@ -54,15 +57,30 @@
           <div class="container p-0">
             <div class="row item-menu g-0">
               <% for (let key in drinkInfo) { %>
-                <% if (key.startsWith("strIngredient") && drinkInfo[key] !== null ) {%>
+                <% if (key.startsWith("strIngredient") && drinkInfo[key]) {%>
                   <% let number = key.match(/\d+$/); %>
                   <div class="item">
-                  <a href="<%= "/ingredient?ingredientName="+ drinkInfo[key] %>"
+                  <a href="<%= "/ingredient?ingredientID="+ ingredient_IDs[key] %>"
                     ><img
                       src="<%= "https://www.thecocktaildb.com/images/ingredients/" + drinkInfo[key] + "-Small.png" %>"
                       alt="ingredient"
                   /></a>
-                  <p id="item-name"><%= drinkInfo[`strMeasure${number}`] %> of <%= drinkInfo[key] %></p>
+
+                  <% let measure_amount = drinkInfo[`strMeasure${number}`] %>
+                  <% let ingredient = drinkInfo[key] %>
+
+                  <% // This code determines whether to include the word "of" when reading strMeasure, to understand this better, %>
+                  <% // make a GET request to /lookup.php?i=11416 %>
+                  
+                  <% // Check if the measurement contains only numbers or spaces %>
+                  <% if (/^[0-9 ]*$/.test(drinkInfo[`strMeasure${number}`])) { %>
+                    <% // If it does, display the measurement followed by the ingredient name %>
+                    <p id="item-name"><%= measure_amount %><%= ingredient %></p>
+                  <% } else { %>
+                    <% // If it contains other characters (like letters), display the measurement followed by "of" and then the ingredient name  %>
+                    <p id="item-name"><%= measure_amount %> of <%= ingredient %></p>
+                  <% } %>
+                  
                   </div>
                 <% } %>
               <% } %>
