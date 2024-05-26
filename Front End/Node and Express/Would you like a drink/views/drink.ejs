@@ -58,7 +58,10 @@
             <div class="row item-menu g-0">
               <% for (let key in drinkInfo) { %>
                 <% if (key.startsWith("strIngredient") && drinkInfo[key]) {%>
+
+                  <% // This grabs the number of the current strIngredient<NUMBER> to later grab the corresponding strMeasure<NUMBER> %>
                   <% let number = key.match(/\d+$/); %>
+                  
                   <div class="item">
                   <a href="<%= "/ingredient?ingredientID="+ ingredient_IDs[key] %>"
                     ><img

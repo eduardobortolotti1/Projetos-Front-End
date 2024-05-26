@@ -82,7 +82,7 @@ app.get("/ingredient", async (req, res) => {
   //Checks if query parameters are incorrect.
   const ingredientID = req.query.ingredientID;
   if (!ingredientID) {
-    res.status(400).send("Code 400 bad Request.");
+    res.render("ingredient.ejs");
   }
 
   try {
@@ -95,7 +95,6 @@ app.get("/ingredient", async (req, res) => {
     const filtered_drinks_search = (
       await axios.get(API_URL + "/filter.php?i=" + ingredientInfo.strIngredient)
     ).data.drinks;
-    console.log(filtered_drinks_search);
 
     res.render("ingredient.ejs", {
       ingredientInfo: ingredientInfo,
@@ -107,9 +106,10 @@ app.get("/ingredient", async (req, res) => {
   }
 });
 
-app.post("/filterIngredient", async (req, res) => {
+app.post("/ingredient-search", async (req, res) => {
   //Checks if query parameters are incorrect.
-  const ingredientName = req.query.ingredientName;
+  const ingredientName = req.body.search_name;
+  console.log()
   if (!ingredientName) {
     res.status(400).send("Code 400 bad Request.");
   }
@@ -117,19 +117,13 @@ app.post("/filterIngredient", async (req, res) => {
   try {
     //Makes a request to grab all info of the ingredient from its ID
     const response = await axios.get(
-      API_URL + "/filter.php?i=" + ingredientName
+      API_URL + "/search.php?i=" + ingredientName
     );
-    const ingredientInfo = response.data.drinks;
+    const data = response.data;
 
-    const filtered_drinks_search = (
-      await axios.get(API_URL + "/filter.php?i=" + ingredientInfo.strIngredient)
-    ).data.drinks;
-    console.log(filtered_drinks_search);
+    const ingredientID = data.ingredients[0].idIngredient;
+    res.redirect("/ingredient?ingredientID=" + ingredientID);
 
-    res.render("ingredient.ejs", {
-      ingredientInfo: ingredientInfo,
-      filtered_drinks_search: filtered_drinks_search,
-    });
   } catch (error) {
     console.error(error);
     res.render("index.ejs");
