@@ -90,6 +90,7 @@ app.get("/ingredient", async (req, res) => {
     const response = await axios.get(
       API_URL + "/lookup.php?iid=" + ingredientID
     );
+
     const ingredientInfo = response.data.ingredients[0];
 
     const filtered_drinks_search = (
@@ -109,7 +110,7 @@ app.get("/ingredient", async (req, res) => {
 app.post("/ingredient-search", async (req, res) => {
   //Checks if query parameters are incorrect.
   const ingredientName = req.body.search_name;
-  console.log()
+  
   if (!ingredientName) {
     res.status(400).send("Code 400 bad Request.");
   }
@@ -119,14 +120,17 @@ app.post("/ingredient-search", async (req, res) => {
     const response = await axios.get(
       API_URL + "/search.php?i=" + ingredientName
     );
+
     const data = response.data;
 
     const ingredientID = data.ingredients[0].idIngredient;
+
+
     res.redirect("/ingredient?ingredientID=" + ingredientID);
 
   } catch (error) {
     console.error(error);
-    res.render("index.ejs");
+    res.redirect("/ingredient");
   }
 });
 
