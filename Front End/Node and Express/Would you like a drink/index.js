@@ -82,7 +82,7 @@ app.get("/ingredient", async (req, res) => {
   //Checks if query parameters are incorrect.
   const ingredientID = req.query.ingredientID;
   if (!ingredientID) {
-    res.render("ingredient.ejs");
+    return res.render("ingredient.ejs");
   }
 
   try {
