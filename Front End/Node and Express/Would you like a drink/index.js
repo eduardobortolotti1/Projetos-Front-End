@@ -29,7 +29,7 @@ app.get("/drink", async (req, res) => {
   //Checks if query parameters are incorrect.
   const idDrink = req.query.idDrink;
   if (!idDrink) {
-    res.status(400).send("Code 400 bad Request.");
+    return res.status(400).send("Code 400 bad Request.");
   }
   try {
     //Makes a request to grab all info of the drink from its ID
@@ -112,7 +112,7 @@ app.post("/ingredient-search", async (req, res) => {
   const ingredientName = req.body.search_name;
   
   if (!ingredientName) {
-    res.status(400).send("Code 400 bad Request.");
+    return res.status(400).send("Code 400 bad Request.");
   }
 
   try {
