@@ -24,5 +24,10 @@ A small web application that uses TheCocktailDB's API to suggest cocktail recipe
  http://localhost:3000
 ```
 
+## Screenshots
+![Index page](https://i.ibb.co/HhfY73G/firefox-Tf-R24-Af-T0j.png)
+![Drink page](https://i.ibb.co/prVyns7/firefox-ENe-EUNw-BDh.png)
+![Ingredient page](https://i.ibb.co/s6KMSrT/firefox-mw6t-Yic-De9.png)
+
 ## Credits
 Thanks to flaticon.com for providing the art used in this page.
